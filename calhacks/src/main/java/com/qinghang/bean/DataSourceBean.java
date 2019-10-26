@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 
 @Configuration
-public class DataSouceBean {
+public class DataSourceBean {
     @Value("${db.serverName}")
     private String serverName;
 
