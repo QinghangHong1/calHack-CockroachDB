@@ -164,28 +164,7 @@ public class BasicDAO {
         }
     }
 
-    public void createAccounts() {
-        runSQL("CREATE TABLE IF NOT EXISTS accounts (id INT PRIMARY KEY, balance INT, CONSTRAINT balance_gt_0 CHECK (balance >= 0))");
-    };
 
-    /**
-     * Update accounts by passing in a Map of (ID, Balance) pairs.
-     *
-     * @param accounts (Map)
-     * @return The number of updated accounts (int)
-     */
-    public int updateAccounts(Map<String, String> accounts) {
-        int rows = 0;
-        for (Map.Entry<String, String> account : accounts.entrySet()) {
-
-            String k = account.getKey();
-            String v = account.getValue();
-
-            String[] args = {k, v};
-            rows += runSQL("INSERT INTO accounts (id, balance) VALUES (?, ?)", args);
-        }
-        return rows;
-    }
 
     /**
      * Transfer funds between one account and another.  Handles
