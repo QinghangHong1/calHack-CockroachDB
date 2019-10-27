@@ -22,8 +22,8 @@ public class LoginDao {
         password = MD5Util.encrypt(username, password);
         Connection connection = ds.getConnection();
         PreparedStatement preparedStatement = connection.prepareStatement("SELECT FROM my_doctor.user WHERE username=? AND password=?");
-        preparedStatement.setString(0,username);
-        preparedStatement.setString(1, password);
+        preparedStatement.setString(1,username);
+        preparedStatement.setString(2, password);
 
         preparedStatement.execute();
         ResultSet rs = preparedStatement.getResultSet();
